@@ -18,3 +18,21 @@ RSpec.describe Restaurant do
         end
     end 
 end
+
+RSpec.describe Restaurant do
+    context 'testing total of products with FactoryBot and Faker' do         
+        let(:restaurant) {FactoryBot.create(:restaurant)}
+        let(:total) { rand(5) }        
+        before do
+            puts "Restaurante: #{restaurant.name}, Endereço: #{restaurant.address}"            
+            (1..total).each do |item|                
+                product = FactoryBot.create(:product, restaurant: restaurant)
+                puts "Produto: #{product.name}, Preço: #{product.value}"
+            end            
+        end
+        it 'returns total of products for a specific restaurant' do            
+            
+            expect(restaurant.total_of_products).to eq total
+        end
+    end 
+end
