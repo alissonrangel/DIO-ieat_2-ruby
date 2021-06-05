@@ -14,8 +14,10 @@ class ProductsController < ApplicationController
     # devolver da controller para a view
     respond_to do |format|
       if @product.save
+        # redirect to faz uma outra requisição http
         format.html {redirect_to products_path, notice: 'Produto criado'}
       else
+        # render apenas renderiza new
         format.html {render :new}
       end
     end

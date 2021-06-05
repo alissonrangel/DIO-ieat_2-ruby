@@ -1,11 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe Restaurant do
-    context 'testing tspec' do
+    context 'testing rspec' do
         it do
             expect(1). to eq 1
         end
     end
+end
+
+RSpec.describe Restaurant do
+    it { should have_many(:products) }
 end
 
 RSpec.describe Restaurant do

@@ -1,3 +1,10 @@
 <h1>Home#index</h1>
 <p>Find me in app/views/home/index.html.erb</p>
 <p><%= @email %></p>
+<% if user_signed_in? %>
+  <% if current_user.restaurant? %>
+    <%= render 'restaurant', var: current_user.email %>
+  <% elsif current_user.customer? %>
+    <%= render 'customer', var: current_user.email %>
+  <% end %>
+<% end %>
