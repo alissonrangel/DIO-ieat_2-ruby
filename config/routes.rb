@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  # get 'orders/create'
+  resources :orders, only: [:create]
   # get 'products/index'
   resources :products, only: [:index, :new, :create]
   resources :restaurants
